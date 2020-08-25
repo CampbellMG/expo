@@ -3,12 +3,11 @@ package versioned.host.exp.exponent.modules.universal.sensors;
 import java.util.Collections;
 import java.util.List;
 
-import org.unimodules.core.interfaces.InternalModule;
-import org.unimodules.interfaces.sensors.services.AccelerometerService;
+import expo.modules.sensors.services.AccelerometerService;
 import host.exp.exponent.kernel.ExperienceId;
 import host.exp.exponent.kernel.services.sensors.SubscribableSensorKernelService;
 
-public class ScopedAccelerometerService extends BaseSensorService implements InternalModule, AccelerometerService {
+public class ScopedAccelerometerService extends BaseSensorService {
   public ScopedAccelerometerService(ExperienceId experienceId) {
     super(experienceId);
   }

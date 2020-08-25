@@ -3,12 +3,11 @@ package versioned.host.exp.exponent.modules.universal.sensors;
 import java.util.Collections;
 import java.util.List;
 
-import org.unimodules.core.interfaces.InternalModule;
-import org.unimodules.interfaces.sensors.services.RotationVectorSensorService;
+import expo.modules.sensors.services.RotationVectorSensorService;
 import host.exp.exponent.kernel.ExperienceId;
 import host.exp.exponent.kernel.services.sensors.SubscribableSensorKernelService;
 
-public class ScopedRotationVectorSensorService extends BaseSensorService implements InternalModule, RotationVectorSensorService {
+public class ScopedRotationVectorSensorService extends BaseSensorService {
   public ScopedRotationVectorSensorService(ExperienceId experienceId) {
     super(experienceId);
   }

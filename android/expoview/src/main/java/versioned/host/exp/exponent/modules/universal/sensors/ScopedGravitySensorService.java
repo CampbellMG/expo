@@ -3,12 +3,11 @@ package versioned.host.exp.exponent.modules.universal.sensors;
 import java.util.Collections;
 import java.util.List;
 
-import org.unimodules.core.interfaces.InternalModule;
-import org.unimodules.interfaces.sensors.services.GravitySensorService;
+import expo.modules.sensors.services.GravitySensorService;
 import host.exp.exponent.kernel.ExperienceId;
 import host.exp.exponent.kernel.services.sensors.SubscribableSensorKernelService;
 
-public class ScopedGravitySensorService extends BaseSensorService implements InternalModule, GravitySensorService {
+public class ScopedGravitySensorService extends BaseSensorService {
   public ScopedGravitySensorService(ExperienceId experienceId) {
     super(experienceId);
   }

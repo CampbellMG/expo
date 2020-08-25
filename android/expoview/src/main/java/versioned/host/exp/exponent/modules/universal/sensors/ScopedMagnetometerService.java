@@ -3,12 +3,11 @@ package versioned.host.exp.exponent.modules.universal.sensors;
 import java.util.Collections;
 import java.util.List;
 
-import org.unimodules.core.interfaces.InternalModule;
-import org.unimodules.interfaces.sensors.services.MagnetometerService;
+import expo.modules.sensors.services.MagnetometerService;
 import host.exp.exponent.kernel.ExperienceId;
 import host.exp.exponent.kernel.services.sensors.SubscribableSensorKernelService;
 
-public class ScopedMagnetometerService extends BaseSensorService implements InternalModule, MagnetometerService {
+public class ScopedMagnetometerService extends BaseSensorService {
   public ScopedMagnetometerService(ExperienceId experienceId) {
     super(experienceId);
   }

@@ -2,6 +2,8 @@ package versioned.host.exp.exponent.modules.universal.sensors;
 
 import android.hardware.SensorEventListener2;
 
+import org.unimodules.core.interfaces.InternalModule;
+
 import javax.inject.Inject;
 
 import org.unimodules.interfaces.sensors.SensorServiceSubscription;
@@ -11,7 +13,7 @@ import host.exp.exponent.kernel.services.ExpoKernelServiceRegistry;
 import host.exp.exponent.kernel.services.sensors.SensorKernelServiceSubscription;
 import host.exp.exponent.kernel.services.sensors.SubscribableSensorKernelService;
 
-public abstract class BaseSensorService {
+public abstract class BaseSensorService implements InternalModule {
   private ExperienceId mExperienceId;
 
   @Inject

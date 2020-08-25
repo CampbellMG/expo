@@ -3,12 +3,11 @@ package versioned.host.exp.exponent.modules.universal.sensors;
 import java.util.Collections;
 import java.util.List;
 
-import org.unimodules.core.interfaces.InternalModule;
-import org.unimodules.interfaces.sensors.services.GyroscopeService;
+import expo.modules.sensors.services.GyroscopeService;
 import host.exp.exponent.kernel.ExperienceId;
 import host.exp.exponent.kernel.services.sensors.SubscribableSensorKernelService;
 
-public class ScopedGyroscopeService extends BaseSensorService implements InternalModule, GyroscopeService {
+public class ScopedGyroscopeService extends BaseSensorService {
   public ScopedGyroscopeService(ExperienceId experienceId) {
     super(experienceId);
   }
