@@ -9,8 +9,9 @@ import android.os.Bundle;
 
 import org.unimodules.core.Promise;
 import org.unimodules.core.interfaces.ExpoMethod;
-import org.unimodules.interfaces.sensors.SensorService;
-import org.unimodules.interfaces.sensors.services.PedometerService;
+
+import expo.modules.sensors.services.PedometerService;
+import expo.modules.sensors.services.SubscribableSensorService;
 
 public class PedometerModule extends BaseSensorModule {
   private Integer stepsAtTheBeginning = null;
@@ -30,7 +31,7 @@ public class PedometerModule extends BaseSensorModule {
   }
 
   @Override
-  protected SensorService getSensorService() {
+  protected SubscribableSensorService getSensorService() {
     return getModuleRegistry().getModule(PedometerService.class);
   }
 

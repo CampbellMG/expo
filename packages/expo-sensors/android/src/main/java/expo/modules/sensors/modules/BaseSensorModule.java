@@ -12,8 +12,9 @@ import org.unimodules.core.ModuleRegistry;
 import org.unimodules.core.interfaces.LifecycleEventListener;
 import org.unimodules.core.interfaces.services.EventEmitter;
 import org.unimodules.core.interfaces.services.UIManager;
-import org.unimodules.interfaces.sensors.SensorService;
-import org.unimodules.interfaces.sensors.SensorServiceSubscription;
+
+import expo.modules.sensors.services.SensorServiceSubscription;
+import expo.modules.sensors.services.SubscribableSensorService;
 
 public abstract class BaseSensorModule extends ExportedModule implements SensorEventListener2, LifecycleEventListener {
   private SensorServiceSubscription mSensorServiceSubscription;
@@ -21,7 +22,9 @@ public abstract class BaseSensorModule extends ExportedModule implements SensorE
   private boolean mIsObserving = false;
 
   protected abstract String getEventName();
-  protected abstract SensorService getSensorService();
+
+  protected abstract SubscribableSensorService getSensorService();
+
   protected abstract Bundle eventToMap(SensorEvent sensorEvent);
 
   BaseSensorModule(Context context) {

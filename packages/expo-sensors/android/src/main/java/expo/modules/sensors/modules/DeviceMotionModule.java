@@ -10,27 +10,27 @@ import android.view.Choreographer;
 import android.view.Surface;
 import android.view.WindowManager;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.lang.Math;
-
 import org.unimodules.core.ExportedModule;
 import org.unimodules.core.ModuleRegistry;
 import org.unimodules.core.Promise;
 import org.unimodules.core.interfaces.ExpoMethod;
 import org.unimodules.core.interfaces.services.EventEmitter;
 import org.unimodules.core.interfaces.services.UIManager;
-import org.unimodules.interfaces.sensors.SensorService;
-import org.unimodules.interfaces.sensors.SensorServiceSubscription;
-import org.unimodules.interfaces.sensors.services.AccelerometerService;
-import org.unimodules.interfaces.sensors.services.GravitySensorService;
-import org.unimodules.interfaces.sensors.services.GyroscopeService;
-import org.unimodules.interfaces.sensors.services.LinearAccelerationSensorService;
-import org.unimodules.interfaces.sensors.services.RotationVectorSensorService;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import expo.modules.sensors.services.AccelerometerService;
+import expo.modules.sensors.services.GravitySensorService;
+import expo.modules.sensors.services.GyroscopeService;
+import expo.modules.sensors.services.LinearAccelerationSensorService;
+import expo.modules.sensors.services.RotationVectorSensorService;
+import expo.modules.sensors.services.SensorServiceSubscription;
+import expo.modules.sensors.services.SubscribableSensorService;
 
 public class DeviceMotionModule extends ExportedModule implements SensorEventListener2 {
   private long mLastUpdate = 0;
@@ -78,7 +78,7 @@ public class DeviceMotionModule extends ExportedModule implements SensorEventLis
   public void startObserving(Promise promise) {
     if (mServiceSubscriptions == null) {
       mServiceSubscriptions = new ArrayList<>();
-      for (SensorService kernelService : getSensorKernelServices()) {
+      for (SubscribableSensorService kernelService : getSensorKernelServices()) {
         SensorServiceSubscription subscription = kernelService.createSubscriptionForListener(this);
         // We want handle update interval on our own,
         // because we need to coordinate updates from multiple sensor services.
@@ -130,13 +130,13 @@ public class DeviceMotionModule extends ExportedModule implements SensorEventLis
     mModuleRegistry = moduleRegistry;
   }
 
-  private List<SensorService> getSensorKernelServices() {
+  private List<SubscribableSensorService> getSensorKernelServices() {
     return Arrays.asList(
-        mModuleRegistry.getModule(GyroscopeService.class),
-        mModuleRegistry.getModule(LinearAccelerationSensorService.class),
-        mModuleRegistry.getModule(AccelerometerService.class),
-        mModuleRegistry.getModule(RotationVectorSensorService.class),
-        mModuleRegistry.getModule(GravitySensorService.class)
+      mModuleRegistry.getModule(GyroscopeService.class),
+      mModuleRegistry.getModule(LinearAccelerationSensorService.class),
+      mModuleRegistry.getModule(AccelerometerService.class),
+      mModuleRegistry.getModule(RotationVectorSensorService.class),
+      mModuleRegistry.getModule(GravitySensorService.class)
     );
   }
 

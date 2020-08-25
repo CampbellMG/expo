@@ -10,8 +10,9 @@ import android.os.Bundle;
 
 import org.unimodules.core.Promise;
 import org.unimodules.core.interfaces.ExpoMethod;
-import org.unimodules.interfaces.sensors.SensorService;
-import org.unimodules.interfaces.sensors.services.MagnetometerUncalibratedService;
+
+import expo.modules.sensors.services.MagnetometerUncalibratedService;
+import expo.modules.sensors.services.SubscribableSensorService;
 
 public class MagnetometerUncalibratedModule extends BaseSensorModule {
   public MagnetometerUncalibratedModule(Context reactContext) {
@@ -29,7 +30,7 @@ public class MagnetometerUncalibratedModule extends BaseSensorModule {
   }
 
   @Override
-  protected SensorService getSensorService() {
+  protected SubscribableSensorService getSensorService() {
     return getModuleRegistry().getModule(MagnetometerUncalibratedService.class);
   }
 
