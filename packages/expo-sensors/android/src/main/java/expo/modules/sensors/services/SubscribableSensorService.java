@@ -42,7 +42,7 @@ public abstract class SubscribableSensorService extends BaseSensorService implem
 
   // Modules API
 
-  public org.unimodules.interfaces.sensors.SensorServiceSubscription createSubscriptionForListener(SensorEventListener2 listener) {
+  public SensorServiceSubscription createSubscriptionForListener(SensorEventListener2 listener) {
     SensorServiceSubscription sensorServiceSubscription = new SensorServiceSubscription(this, listener);
     mSensorEventListenerLastUpdateMap.put(sensorServiceSubscription, 0L);
     return sensorServiceSubscription;
@@ -72,7 +72,7 @@ public abstract class SubscribableSensorService extends BaseSensorService implem
       long currentTime = System.currentTimeMillis();
       Set<SensorServiceSubscription> listeners = mSensorEventListenerLastUpdateMap.keySet();
 
-      for(SensorServiceSubscription sensorServiceSubscription : listeners) {
+      for (SensorServiceSubscription sensorServiceSubscription : listeners) {
         if (sensorServiceSubscription != null && sensorServiceSubscription.isEnabled()) {
           long lastUpdate = 0;
           if (mSensorEventListenerLastUpdateMap.containsKey(sensorServiceSubscription)) {
