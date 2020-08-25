@@ -3,17 +3,9 @@
 package expo.modules.sensors.services;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 
-import java.util.Collections;
-import java.util.List;
-
-import org.unimodules.core.Promise;
-import org.unimodules.core.interfaces.ExpoMethod;
-import org.unimodules.core.interfaces.InternalModule;
-
-public class PedometerService extends SubscribableSensorService implements InternalModule, org.unimodules.interfaces.sensors.services.PedometerService {
+public class PedometerService extends SubscribableSensorService {
   public PedometerService(Context reactContext) {
     super(reactContext);
   }
@@ -21,10 +13,5 @@ public class PedometerService extends SubscribableSensorService implements Inter
   @Override
   int getSensorType() {
     return Sensor.TYPE_STEP_COUNTER;
-  }
-
-  @Override
-  public List<Class> getExportedInterfaces() {
-    return Collections.<Class>singletonList(org.unimodules.interfaces.sensors.services.PedometerService.class);
   }
 }

@@ -5,12 +5,7 @@ package expo.modules.sensors.services;
 import android.content.Context;
 import android.hardware.Sensor;
 
-import java.util.Collections;
-import java.util.List;
-
-import org.unimodules.core.interfaces.InternalModule;
-
-public class RotationVectorSensorService extends SubscribableSensorService implements InternalModule, org.unimodules.interfaces.sensors.services.RotationVectorSensorService {
+public class RotationVectorSensorService extends SubscribableSensorService {
   public RotationVectorSensorService(Context context) {
     super(context);
   }
@@ -18,10 +13,5 @@ public class RotationVectorSensorService extends SubscribableSensorService imple
   @Override
   int getSensorType() {
     return Sensor.TYPE_ROTATION_VECTOR;
-  }
-
-  @Override
-  public List<Class> getExportedInterfaces() {
-    return Collections.singletonList((Class) org.unimodules.interfaces.sensors.services.RotationVectorSensorService.class);
   }
 }

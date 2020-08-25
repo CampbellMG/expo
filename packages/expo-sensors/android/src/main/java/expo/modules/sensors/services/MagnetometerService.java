@@ -5,12 +5,7 @@ package expo.modules.sensors.services;
 import android.content.Context;
 import android.hardware.Sensor;
 
-import java.util.Collections;
-import java.util.List;
-
-import org.unimodules.core.interfaces.InternalModule;
-
-public class MagnetometerService extends SubscribableSensorService implements InternalModule, org.unimodules.interfaces.sensors.services.MagnetometerService {
+public class MagnetometerService extends SubscribableSensorService {
   public MagnetometerService(Context reactContext) {
     super(reactContext);
   }
@@ -18,10 +13,5 @@ public class MagnetometerService extends SubscribableSensorService implements In
   @Override
   int getSensorType() {
     return Sensor.TYPE_MAGNETIC_FIELD;
-  }
-
-  @Override
-  public List<Class> getExportedInterfaces() {
-    return Collections.<Class>singletonList(org.unimodules.interfaces.sensors.services.MagnetometerService.class);
   }
 }
