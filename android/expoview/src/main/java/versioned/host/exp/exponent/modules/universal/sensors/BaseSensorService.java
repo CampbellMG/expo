@@ -6,7 +6,6 @@ import org.unimodules.core.interfaces.InternalModule;
 
 import javax.inject.Inject;
 
-import org.unimodules.interfaces.sensors.SensorServiceSubscription;
 import host.exp.exponent.di.NativeModuleDepsProvider;
 import host.exp.exponent.kernel.ExperienceId;
 import host.exp.exponent.kernel.services.ExpoKernelServiceRegistry;
@@ -34,7 +33,7 @@ public abstract class BaseSensorService implements InternalModule {
 
   protected abstract SubscribableSensorKernelService getSensorKernelService();
 
-  public SensorServiceSubscription createSubscriptionForListener(SensorEventListener2 sensorEventListener) {
+  public SensorSubscription createSubscriptionForListener(SensorEventListener2 sensorEventListener) {
     ScopedSensorEventListener scopedSensorEventListener = new ScopedSensorEventListener(sensorEventListener);
     SensorKernelServiceSubscription sensorKernelServiceSubscription = getSensorKernelService().createSubscriptionForListener(getExperienceId(), scopedSensorEventListener);
     return new SensorSubscription(sensorKernelServiceSubscription);
